@@ -1,0 +1,7 @@
+cassandra:
+  image: cassandra:3
+  ports:
+    - "9042:9042"
+  volumes:
+    - ./:/mnt/resources
+  command: /bin/bash -c "function schema() { echo loading cassandra keyspace; until cqlsh -f /mnt/resources/schema.cql; do echo 'retry required'; sleep 1; done;}; schema& /docker-entrypoint.sh"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence keyspace="ks" table="tbl">
+	<keyPersistence class="com.example.ignite.cassandra.CompositeKey" strategy="POJO">
+		<partitionKey>
+			<field name="first" column="first" />
+		</partitionKey>
+		<clusterKey>
+			<field name="first" column="first" />
+			<field name="second" column="second" />
+		</clusterKey>
+	</keyPersistence>
+	<valuePersistence class="com.example.ignite.cassandra.CompositeValue" strategy="POJO">
+		<field name="third" column="third" />
+		<field name="fourth" column="fourth" />
+		<field name="fifth" column="fifth" />
+		<field name="sixth" column="sixth" />
+		<field name="seventh" column="seventh" />
+		<field name="eighth" column="eighth" />
+	</valuePersistence>
+</persistence>
